@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Home from './Home';
+import UserLogin from './UserLogin';
+import AdminLogin from './AdminLogin';
+import AdminPanel from './AdminPanel';
+import UserDashboard from './UserDashboard';
+import UserRegistration from './UserRegistration';
+import UserChangePassword from './UserChangePassword';
+import UserAccounts from './UserAccounts';
+import './index.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/user-login" element={<UserLogin />} />
+        <Route path="/admin-login" element={<AdminLogin isAdmin={true} />} />
+        <Route path="/admin" element={<AdminPanel />} />
+        <Route path="/user" element={<UserDashboard />} />
+        <Route path="/admin/user-registration" element={<UserRegistration />} />
+        <Route path="/admin/user-change-password" element={<UserChangePassword />} />
+        <Route path="/admin/user-accounts" element={<UserAccounts />} />
+      </Routes>
     </div>
   );
 }
